@@ -1,0 +1,45 @@
+$users-count: 100;
+
+.container {
+  display: flex;
+  min-height: 100vh;
+  padding: 30px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container__title {
+  font-size: 32px;
+  font-weight: 700;
+  padding-bottom: 15px;
+}
+
+.container__users {
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 21px;
+  row-gap: 15px;
+}
+
+  @for $a from 0 through 4 {
+    @for $b from 1 through 20 {
+      $n: 20 * $a + $b;
+      .container__user:nth-child(#{$n}) {
+        animation: show #{$b * 0.2}s normal;
+      }
+    }
+  }
+
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  
+}
